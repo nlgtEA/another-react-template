@@ -1,6 +1,6 @@
 import { useMutation } from 'react-query';
 
-import { login } from '../apis/auth';
+import { login } from 'apis/auth';
 
 const useLogin = () =>
   useMutation(async ({ email, password }) => {

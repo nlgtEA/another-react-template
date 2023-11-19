@@ -10,7 +10,15 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  settings: {
+    react: { version: '18.2' },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        paths: ['./src'],
+      },
+    },
+  },
   plugins: ['react-refresh', 'import'],
   rules: {
     'react-refresh/only-export-components': [
@@ -18,6 +26,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'jsx-quotes': ['error', 'prefer-double'],
+    'quotes': ['error', 'single'],
     'import/newline-after-import': ['error', { count: 1 }],
     'import/order': [
       'error',

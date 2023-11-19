@@ -1,0 +1,11 @@
+**/*.scss
+**/*.css
+
+# config files at root level
+*config.*
+jsconfig.json
+*rc.cjs
+
+src/assets/*
+
+coverage

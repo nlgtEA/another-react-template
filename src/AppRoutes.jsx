@@ -1,8 +1,8 @@
 import { createRoutesFromElements, Route } from 'react-router-dom';
 
-import Root from './components/Root';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import Root from 'components/Root';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
 
 const AppRoutes = createRoutesFromElements(
   <Route>
