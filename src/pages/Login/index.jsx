@@ -10,7 +10,6 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const loginMutation = useLogin();

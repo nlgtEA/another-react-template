@@ -1,9 +1,13 @@
 import { Link, Outlet } from 'react-router-dom';
 
+import { useCurrentUser } from 'hooks/auth';
+
 function Root() {
+  const currentUserQuery = useCurrentUser();
+  const currentUser = currentUserQuery.data;
   return (
     <div>
-      <p>Welcome Guest!</p>
+      <p>Welcome {currentUser ? currentUser.email : 'Guest'}!</p>
       <ul>
         <li>
           <Link to="/">Home</Link>
