@@ -14,7 +14,9 @@ export const login = (email, password) => {
   });
 };
 
-export const getCurrentUser = (accessToken) => {
+export const getCurrentUser = () => {
+  const accessToken = localStorage.getItem('accessToken');
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (accessToken !== 'abcxyz') {

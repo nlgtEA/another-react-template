@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { useLogin } from 'hooks/auth';
 
 function Login() {
   const [loginError, setLoginError] = useState('');
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const queryClient = useQueryClient();
   const loginMutation = useLogin();
 
   const navigate = useNavigate();
@@ -21,6 +24,7 @@ function Login() {
       const res = await loginMutation.mutateAsync(data);
       const { accessToken } = res;
       localStorage.setItem('accessToken', accessToken);
+      queryClient.setQueryData('currentUser', res);
 
       const nextPath = localStorage.getItem('nextPath') || '/';
       localStorage.removeItem('nextPath');

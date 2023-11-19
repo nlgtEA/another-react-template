@@ -4,8 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useCurrentUser } from 'hooks/auth';
 
 function PrivateRoute({ children }) {
-  const accessToken = localStorage.getItem('accessToken');
-  const currentUserQuery = useCurrentUser(accessToken);
+  const currentUserQuery = useCurrentUser();
   if (currentUserQuery.isLoading) {
     return <div>Loading...</div>;
   }

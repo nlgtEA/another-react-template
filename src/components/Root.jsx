@@ -5,6 +5,7 @@ import { useCurrentUser } from 'hooks/auth';
 function Root() {
   const currentUserQuery = useCurrentUser();
   const currentUser = currentUserQuery.data;
+
   return (
     <div>
       <p>Welcome {currentUser ? currentUser.email : 'Guest'}!</p>
