@@ -13,3 +13,18 @@ export const login = (email, password) => {
     }, 1000);
   });
 };
+
+export const getCurrentUser = (accessToken) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (accessToken !== 'abcxyz') {
+        return reject(new Error('Unauthenticated'));
+      }
+      resolve({
+        id: 1,
+        email: 'admin@gmail.com',
+        fullName: 'Admin John',
+      });
+    }, 500);
+  });
+};

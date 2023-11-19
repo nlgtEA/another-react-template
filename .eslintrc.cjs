@@ -26,7 +26,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'jsx-quotes': ['error', 'prefer-double'],
-    'quotes': ['error', 'single'],
+    quotes: ['error', 'single'],
     'import/newline-after-import': ['error', { count: 1 }],
     'import/order': [
       'error',

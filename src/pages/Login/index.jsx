@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import { useLogin } from 'hooks/auth';
 
@@ -14,11 +15,17 @@ function Login() {
 
   const loginMutation = useLogin();
 
+  const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     try {
       const res = await loginMutation.mutateAsync(data);
-      console.log('==== res', res);
-      reset();
+      const { accessToken } = res;
+      localStorage.setItem('accessToken', accessToken);
+
+      const nextPath = localStorage.getItem('nextPath') || '/';
+      localStorage.removeItem('nextPath');
+      navigate(nextPath);
     } catch (error) {
       setLoginError(error.message);
     }

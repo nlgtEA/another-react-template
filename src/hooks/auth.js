@@ -1,10 +1,17 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 
-import { login } from 'apis/auth';
+import { login, getCurrentUser } from 'apis/auth';
 
-const useLogin = () =>
+export const useLogin = () =>
   useMutation(async ({ email, password }) => {
     return login(email, password);
   });
 
-export { useLogin };
+export const useCurrentUser = (accessToken) =>
+  useQuery(
+    'currentUser',
+    async () => {
+      return getCurrentUser(accessToken);
+    },
+    { retry: false },
+  );
