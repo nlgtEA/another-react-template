@@ -11,7 +11,6 @@ const AppRoutes = createRoutesFromElements(
     <Route path="login" element={<Login />} />
     <Route path="/" element={<Root />}>
       <Route path="about" element={<h1>About</h1>} />
-      <Route path="contact" element={<h1>Contact</h1>} />
       <Route
         path="private"
         element={

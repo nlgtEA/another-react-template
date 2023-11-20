@@ -45,6 +45,7 @@ function Login() {
           {...register('email', { required: true })}
         />
         {errors.email && <span role="alert">Email is required</span>}
+        <br />
         <label htmlFor="password">Password</label>
         <input
           id="password"
@@ -53,6 +54,7 @@ function Login() {
           aria-invalid={errors.password ? 'true' : 'false'}
         />
         {errors.password && <span role="alert">Password is required</span>}
+        <br />
         <button type="submit">Login</button>
       </form>
       {loginError && <p role="alert">{loginError}</p>}

@@ -20,11 +20,6 @@ function Root() {
           <Link to="/login">Login</Link>
         </li>
         <li>
-          <Link to="/contact" data-testid="contact-link">
-            Contact
-          </Link>
-        </li>
-        <li>
           <Link to="/private" data-testid="contact-link">
             Private page
           </Link>
